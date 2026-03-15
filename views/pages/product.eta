@@ -1,0 +1,9 @@
+<% layout('layouts/main.eta') %>
+
+<main id="store" class="main-container">
+  <h2 class="heading">Item <% it.id %> </h2>
+  <div hx-get="/api/product" hx-target="#product" hx-swap="innerHTML">
+    <div id="product"></div>
+  </div>
+</main>
+

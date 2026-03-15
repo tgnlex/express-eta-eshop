@@ -1,0 +1,18 @@
+#navbar {
+  --nav--border: 4px solid black;
+  --nav--width: 80%;
+  border: var(--nav--border);
+  width: var(--nav--width);
+  .navbar--list {
+    --navlist--width: calc(--nav--width - 10%);
+    width: var(--navlist--width);
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    
+    & li {
+      display: inline;
+      margin: 0.5em;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "./header.css";
+@import "./navbar.css";
+
+
+#page {
+  --page--width: 100vw;
+  --page--height: 100vh;
+  
+  width: var(--page--width);
+  height: var(--page--height);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
