@@ -1,14 +1,8 @@
 import { Router } from 'express';
+import products from './data/products';
 
+const router = Router();
 
-const api = Router();
+router.use('/products', products);
 
-api.get('/health', (req, res) => {
-  res.json({
-    status: "online",
-    code: 200,
-  }).status(200);
-});
-
-
-export default api;
+export default router;

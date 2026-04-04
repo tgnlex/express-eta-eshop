@@ -1,0 +1,15 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  & li {
+    margin: 0;
+  }
+}
+
+
+li  {
+  & .link {
+    font-size: 1.4em;
+    color: white;
+  }
+}

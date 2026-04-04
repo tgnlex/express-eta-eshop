@@ -1,50 +1,21 @@
 import express from 'express';
+import process from 'process';
 
-class Application {
-  config = { globals: [], plugins: [] };  
-  server = {};
-  cache = {};
-  log = {};
-  db = {};
+function panic(err) {
+  console.error('ERROR', err)
+  process.exit(1)
+}
 
-  constructor(config) {
-    this.server = express();
-    this.log = config.logger || console;
-    if (config.globals) this.config.globals = config.globals;
-    if (config.plugins) this.config.plugins = config.plugins;
-    if (config.cache) this.cache = config.cache;
-    if (config.db) this.db = config.db;
-  };
-  /*** APP Modules ***/
-  setConfig(config) { this.config = config; }
-  setLogger(logger) { this.log = logger; }
-  setCache(cache) { this.cache = cache }
-
-  setDatabase(db) { this.db = db; }
-  
-  /*** Prestrap ***/
-  prestrap(engine_id, engine) {
-    this.server.engine(engine_id, engine);
-    this.server.disable('x-powered-by');
-    this.server.enable('view cache');
+function Bootstrap() {
+  let server = express();
+  return { 
+    server: server,
+    panic: panic,
+    version() { return server.get('app.version') },
+    port() { return server.get('app.port') },
+    host() { return server.get('app.host') }
   }
-   
-  /*** Bootstrap ***/
-  bootstrap() {
-    const { plugins, globals } = this.config;
-    globals.forEach((glob) => this.server.set(glob.key, glob.value));
-    plugins.forEach((plug) => this.server.use(plug));
-  };
-  /*** Get Globals ***/
-  development() { return this.sever.get('app.developnent') }
-  production() { return this.server.get('app.production') }
-  protocol() { return this.server.get('app.protocol') }
-  version() { return this.server.get('app.version') }
-  host() { return this.server.get('app.host') }
-  port() { return this.server.get('app.port') }
-  name() { return this.server.get('app.name') }
-  logs() { return this.server.get('app.logs') }
-  node() { return this.server.get('app.node') }  
-};
+}
 
-export default Application;
+
+export default Bootstrap

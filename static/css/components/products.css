@@ -1,9 +1,0 @@
-
-
-#products {
-  --products--border: 6px double black;
-  --products--pad: 2em;
-  border: var(--products--border);
-  padding: var(--products--pad);
-  list-style-type: none;
-}

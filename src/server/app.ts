@@ -1,23 +1,22 @@
-import Application from './modules/bootstrapper.ts';
-import information from './modules/info.ts';
-import config from './config/app/config.ts';
-import page_router from './routes/pages.ts';
-import api_router from './routes/api.ts';
+import express from 'express';
+import bootstrap from './modules/bootstrapper.ts';
+import router from './routes/index.ts';
+import path from 'path';
+import helmet from 'helmet';
+import api from './routes/api.ts';
 
+const app = bootstrap();
 
+app.server.use(express.static(path.resolve('src/static')));
+app.server.use(express.urlencoded({ extended: true }));
+app.server.use(express.json());
+app.server.use(helmet());
 
-const application = new Application(config);
+app.server.set('app.port', 3000);
+app.server.set('app.host', '127.0.0.1');
+app.server.set('app.version', '1.0.0');
 
-/*** SETUP FNS ***/
-application.prestrap('eta', engine());
-application.bootstrap();
+app.server.use('/api', api);
+app.server.use(router);
 
-/*** ROUTERS ***/
-application.server.use(page_router)
-application.server.use('/api', api_router)
-
-/*** STARTUP MSG ***/
-information();
-
-
-export default application;
+export default app;

@@ -1,17 +1,12 @@
-import {fmt, panic} from './server/utils/helpers.ts';
 import app from './server/app.ts';
 
-
+const PORT = app.server.get('app.port');
 
 function main() {
-  const address = fmt.address(app.protocol(), app.host(), app.port())
-  
-  app.server.listen(app.port(), (err) => {
-    if (err) panic(err);
-    console.info(`[MAIN] server listening on ${address}`)
-  });
+  app.server.listen(PORT, (err) => {
+    if (err) app.panic(err)
+    console.info(`[MAIN] Server listening on http://localhost:${PORT}`)
+  })
 }
 
-
 main();
-
