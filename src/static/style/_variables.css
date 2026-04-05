@@ -1,0 +1,19 @@
+:root { 
+  --fonts: Poppins, sans-serif;
+  --bg: rgb(255, 255, 255);
+  --text: rgb(0, 0, 0);
+  
+  --line: 1.5;
+  --size: 16px;
+  --weight: 400;
+  --page-pad: 1em;
+  --layout--width: 100vw;
+
+  --layout--header--width: calc(var(--layout--width) - 2.5%);
+  --layout--header--height: 20vh;
+  --b-xs: 1px;
+  --b-sm: calc(var(--b-xs) * 2);
+  --b-md: calc(var(--b-sm) + var(--b-sm));
+  --b-lg: calc(var(--b-md) + var(--b-sm));
+  --b-xl: calc(var(--b-lg) + var(--b-sm));
+}

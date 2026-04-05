@@ -1,4 +1,4 @@
-import layout from '../layout/index.ts';
+import layout from './layout/index.ts';
 
 const welcome = () => `
   <div id="welcome">

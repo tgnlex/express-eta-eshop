@@ -1,15 +1,41 @@
-.list {
-  list-style-type: none;
-  padding: 0;
+.grid {
+  --cols: 3;
+  --rows: 3;
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+}
+
+.list { 
+  list-style-type: none; 
+  padding: 0 
+};
+
+.list:not(.inline) {
+  display: flex;
+  flex-direction: column;
   & li {
     margin: 0;
   }
 }
 
-
-li  {
-  & .link {
-    font-size: 1.4em;
-    color: white;
-  }
+.link {
+  font-size: 1.2em;
+  font-weight: 500;
 }
+
+.link:not(.nav-link) {
+  font-size: 1.4em;
+  color: inherit;
+}
+
+
+.card {
+  --card--pad: 1.8em;
+  --card--rad: calc(var(--card--pad) / 4);
+  display: flex;
+  flex-direction: column;
+  padding: var(--card--pad);
+  border-radius: var(--card--rad);
+  border: var(--b-sm) solid var(--text);
+}
+

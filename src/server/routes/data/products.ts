@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let id = req.params.id - 1;
-  res.json(products[id]);
+  res.json(product);
 });
 
 export default router;

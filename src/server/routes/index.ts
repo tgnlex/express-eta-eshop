@@ -18,7 +18,7 @@ router.get('/store', (req, res) => {
 
 router.get('/store/:id', (req, res) => {
   const id = req.params.id;
-  res.send(`<h1>product ${id} page</h1>`);
+  res.send(views.product(id));
 });
 
 export default router;

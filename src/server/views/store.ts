@@ -1,9 +1,9 @@
-import layout from '../layout/index.ts';
+import layout from './layout/index.ts';
 
 const store = ()  => layout(`
-  <main id="home" class="page">
+  <main id="store" class="page">
     <h1 id="heading">Store</h1>
-    <ul id="products" class="list"></ul>
+    <div id="products" class="grid"></div>
   </main>
   <script src="js/store.js"></script>
 `);

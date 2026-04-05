@@ -1,0 +1,46 @@
+#layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--layout--width);
+  padding: 0;
+
+  /*** HEADER ***/
+  & header {
+    background: rgb(44, 20, 38);
+    width: var(--layout--header--width);
+    height: var(--layout--header--height);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25em;
+    & #banner {
+      --banner--width: calc(var(--layout--header--width) - 1%);
+      --banner--height: 100%;
+      width: var(--banner--width);
+      height: 100%;
+    }
+  }
+  /*** NAVBAR ***/
+  & #navbar {
+  --nav--pad: calc(var(--page-pad) / 1.5);
+  --nav--mt: calc(var(--nav--pad) * 2);
+  --nav--gap: calc(var(--nav--pad) * 2.5);
+  --nav--border: 2px solid black;
+  margin-top: var(--nav--mt);
+  border: var(--nav--border);
+  display: flex;
+  flex-direction: row;
+  padding: var(--nav--pad);
+  gap: var(--nav--gap);
+
+  }
+  /*** FOOTER ***/
+  & footer {
+    width: var(--layout--header--width);
+  }
+}
+
+
+
